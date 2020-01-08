@@ -85,4 +85,3 @@ class MainView extends React.Component {
   }
 }
 export default MainView;
-하하하하하
