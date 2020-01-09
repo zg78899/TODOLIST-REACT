@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Footer=(props)=> {
-  console.log(props);
+  // console.log(props);
   const countCompleted =props.todos.filter(todo => todo.completed).length;
    const itemLeft = props.todos.filter(todo => !todo.completed).length;
   

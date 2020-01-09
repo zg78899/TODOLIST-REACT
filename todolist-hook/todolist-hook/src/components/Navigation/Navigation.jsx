@@ -1,16 +1,26 @@
-import React,{useRef} from 'react';
+import React from 'react';
 
-const Navigation=(props)=> {
+const Navigation = (props) => {
+  console.log(props.navs);
   console.log(props);
-  const nav= useRef();
-  
+
+  const navItems =
+    props.navs.map((navItem) => (
+      <li
+        key={navItem.id}
+        id={navItem.id}
+        className={navItem.toggle ? 'active' : null}
+        onClick={()=>props.changeNav(navItem.id)}
+      >
+        {navItem.id}
+      </li>
+    ))
   return (
     <div>
-       <ul ref={nav} className="nav" onClick={({target})=>props.changeNav(target.id,nav)}>
-          <li id="all" className="active">All</li>
-          <li id="active">Active</li>
-          <li id="completed">Completed</li>
-        </ul>
+      <ul className="nav">
+        {navItems}
+      </ul>
+        
     </div>
   )
 

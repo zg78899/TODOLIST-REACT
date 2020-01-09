@@ -15,15 +15,17 @@ function MainView() {
       { id: 3, content: 'Javascript', completed: false }
     ],
   });
-  const [navs, setNavState]= useState({
-    navState:'all'
-  });
-  
-  // const nav = createRef();
-  
+  const [navs, setNavState]= useState(
+    [
+      {id:'all',toggle:true},
+      {id:'active',toggle:false},
+      {id:'completed',toggle:false},
+    ]
+  );
+ 
+  // const nav = useRef();
   const {todos}=state;
   // const {navState}=navs;
-  
   
   // const countCompleted =todos.filter(todo => todo.completed).length;
   // const itemLeft = todos.filter(todo => !todo.completed).length;
@@ -40,14 +42,12 @@ function MainView() {
     });
     target.value = '';
   }
-
   const toggleTodo = (id) => {
     setState({
       ...state,
       todos: todos.map(todo => todo.id === id ? { ...todo, completed: !todo.completed } : todo)
     })
   }
-
   const removeTodo = (id) => {
     setState({
       ...state,
@@ -66,16 +66,12 @@ function MainView() {
       todos: todos.filter(todo => !todo.completed)
     })
   }
-  const changeNav = (id,nav) => {
-     
-   [...nav.current.children].forEach(navItem => navItem.classList.toggle('active', navItem.id === id));
-   setNavState({
-     navState:id
-    })
+  const changeNav = (id) => {
+   setNavState(
+     navs.map(navItem=>navItem.id === id? {...navItem, toggle: true} : {...navItem, toggle: false})
+    )
     console.log(id);
   }
-  
-
   return (
     <>
       <div className="container">
@@ -83,8 +79,8 @@ function MainView() {
         <div className="ver">1.0</div>
 
         <InputTodo {...state.todos} addTodo={addTodo}/>
-        <Navigation changeNav={changeNav}/>
-        <TodoList {...navs} {...state} toggleTodo={toggleTodo} removeTodo={removeTodo} />
+        <Navigation navs={navs} changeNav={changeNav}/>
+        <TodoList navs={navs} {...state} toggleTodo={toggleTodo} removeTodo={removeTodo} />
         <Footer {...state} removeAll={removeAll} toggleAll={toggleAll}/>
       </div>
     </>
