@@ -2,6 +2,7 @@ import React from 'react';
 import {ITodo} from '../../types/Todo';
 
 type Props={
+
   todos:ITodo[],
   add:( event:React.KeyboardEvent<HTMLInputElement>)=>void
 }

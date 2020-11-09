@@ -11,6 +11,7 @@ const Footer = ({todos,removeAll,toggledAll}:Props) => {
   const countCompleted =todos.filter(todo => todo.completed).length;
   const itemLeft = todos.filter(todo => !todo.completed).length;
   return (
+    
     <div>
       <div className="footer">
         <div className="complete-all">

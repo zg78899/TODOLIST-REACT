@@ -22,11 +22,9 @@ function MainView() {
       {id:'completed',toggle:false},
     ]
   );
- 
   // const nav = useRef();
   const {todos}=state;
   // const {navState}=navs;
-  
   // const countCompleted =todos.filter(todo => todo.completed).length;
   // const itemLeft = todos.filter(todo => !todo.completed).length;
 
