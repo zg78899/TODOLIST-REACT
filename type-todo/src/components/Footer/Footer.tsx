@@ -21,7 +21,7 @@ const Footer = ({todos,removeAll,toggledAll}:Props) => {
         <div className="clear-completed">
           <button className="btn" onClick={removeAll}>Clear completed (<span className="completed-todos">{countCompleted}</span>)</button>
           <strong className="active-todos">{itemLeft}</strong> items left
-  </div>ㅌ
+         </div>
       </div>
     </div>
   )

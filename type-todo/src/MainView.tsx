@@ -59,7 +59,7 @@ function MainView() {
 
   const changeNav = (id: string) => {
     setNavState(
-      navs.map(navItem => navItem.id === id ? { ...navItem, toggle: true } : { ...navItem, toggle: false })
+      navs.map(navItem => navItem.id === id ? { ...navItem, toggle:true}:{...navItem,toggle:false})
     )
     console.log(id);
   }
@@ -79,3 +79,4 @@ function MainView() {
   )
 }
 export default MainView;
+
